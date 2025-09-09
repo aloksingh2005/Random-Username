@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Random Username & Password Generator Online - Create Secure Accounts Instantly</title>
+    <meta name="description"
+        content="Generate cool usernames and secure random passwords instantly. Perfect for gamers, developers, and online accounts. Free, fast, and secure username generator.">
+    <meta name="keywords"
+        content="username generator, password generator, random username, secure password, gaming usernames, account creator">
+    <meta name="author" content="Username Generator Pro">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Free Username & Password Generator">
+    <meta property="og:description" content="Generate cool usernames and secure passwords instantly">
+    <meta property="og:url" content="">
+
+    <!-- Favicon -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔐</text></svg>">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Background -->
+    <div class="bg-animation">
+        <div class="bg-circle bg-circle-1"></div>
+        <div class="bg-circle bg-circle-2"></div>
+        <div class="bg-circle bg-circle-3"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-key"></i>
+                    <span>GenPass Pro</span>
+                </div>
+                <div class="header-controls">
+                    <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="help-btn" id="helpBtn" title="Help & Guide">
+                        <i class="fas fa-question-circle"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Title Section -->
+            <section class="hero">
+                <h1 class="hero-title">
+                    <span class="gradient-text">Username & Password</span>
+                    Generator
+                </h1>
+                <p class="hero-subtitle">Create unique usernames and secure passwords instantly</p>
+                <div class="stats">
+                    <div class="stat">
+                        <span class="stat-number" id="totalGenerated">0</span>
+                        <span class="stat-label">Generated</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="totalFavorites">0</span>
+                        <span class="stat-label">Favorites</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Generator Controls -->
+            <section class="generator-section">
+                <div class="generator-grid">
+                    <!-- Username Settings -->
+                    <div class="generator-card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-user"></i> Username Generator</h2>
+                            <div class="card-toggle">
+                                <input type="checkbox" id="usernameEnabled" checked>
+                                <label for="usernameEnabled" class="toggle-switch"></label>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <div class="form-group">
+                                <label for="usernameLength">Length</label>
+                                <div class="range-input">
+                                    <input type="range" id="usernameLength" min="4" max="20" value="8">
+                                    <span class="range-value" id="usernameLengthValue">8</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="usernameStyle">Style</label>
+                                <select id="usernameStyle" class="custom-select">
+                                    <option value="professional">Professional</option>
+                                    <option value="gamer">Gamer</option>
+                                    <option value="creative">Creative</option>
+                                    <option value="tech">Tech</option>
+                                    <option value="fantasy">Fantasy</option>
+                                    <option value="cool">Cool</option>
+                                    <option value="cute">Cute</option>
+                                    <option value="random">Random</option>
+                                </select>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="usernamePrefix">Prefix</label>
+                                    <input type="text" id="usernamePrefix" placeholder="Mr, Dr, Xx">
+                                </div>
+                                <div class="form-group">
+                                    <label for="usernameSuffix">Suffix</label>
+                                    <input type="text" id="usernameSuffix" placeholder="_pro, 99, _">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="usernameCount">Generate Count</label>
+                                <select id="usernameCount" class="custom-select">
+                                    <option value="5">5 usernames</option>
+                                    <option value="10" selected>10 usernames</option>
+                                    <option value="15">15 usernames</option>
+                                    <option value="20">20 usernames</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Password Settings -->
+                    <div class="generator-card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-lock"></i> Password Generator</h2>
+                            <div class="card-toggle">
+                                <input type="checkbox" id="passwordEnabled">
+                                <label for="passwordEnabled" class="toggle-switch"></label>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <div class="form-group">
+                                <label for="passwordLength">Length</label>
+                                <div class="range-input">
+                                    <input type="range" id="passwordLength" min="8" max="32" value="12">
+                                    <span class="range-value" id="passwordLengthValue">12</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Character Types</label>
+                                <div class="checkbox-grid">
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" id="includeUppercase" checked>
+                                        <span class="checkmark"></span>
+                                        <span>Uppercase (A-Z)</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" id="includeLowercase" checked>
+                                        <span class="checkmark"></span>
+                                        <span>Lowercase (a-z)</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" id="includeNumbers" checked>
+                                        <span class="checkmark"></span>
+                                        <span>Numbers (0-9)</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" id="includeSymbols" checked>
+                                        <span class="checkmark"></span>
+                                        <span>Symbols (!@#$)</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Exclude Similar</label>
+                                <div class="checkbox-grid">
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" id="excludeSimilar">
+                                        <span class="checkmark"></span>
+                                        <span>Avoid (0, O, l, I)</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" id="excludeAmbiguous">
+                                        <span class="checkmark"></span>
+                                        <span>Avoid Ambiguous</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Generate Button -->
+                <div class="generate-section">
+                    <button class="generate-btn" id="generateBtn">
+                        <i class="fas fa-magic"></i>
+                        <span>Generate</span>
+                        <div class="btn-ripple"></div>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <div class="results-header">
+                    <h2>Generated Results</h2>
+                    <div class="results-actions">
+                        <button class="action-btn" id="selectAllBtn">
+                            <i class="fas fa-check-double"></i> Select All
+                        </button>
+                        <button class="action-btn" id="copyAllBtn">
+                            <i class="fas fa-copy"></i> Copy All
+                        </button>
+                        <button class="action-btn" id="exportBtn">
+                            <i class="fas fa-download"></i> Export
+                        </button>
+                        <button class="action-btn" id="clearAllBtn">
+                            <i class="fas fa-trash"></i> Clear
+                        </button>
+                    </div>
+                </div>
+
+                <div class="results-grid" id="resultsGrid">
+                    <!-- Results will be populated here -->
+                </div>
+
+                <div class="pagination" id="pagination" style="display: none;">
+                    <!-- Pagination will be added if needed -->
+                </div>
+            </section>
+
+            <!-- History Section -->
+            <section class="history-section" id="historySection" style="display: none;">
+                <div class="section-header">
+                    <h2><i class="fas fa-history"></i> Generation History</h2>
+                    <button class="action-btn" id="clearHistoryBtn">
+                        <i class="fas fa-trash"></i> Clear History
+                    </button>
+                </div>
+                <div class="history-list" id="historyList">
+                    <!-- History items will be populated here -->
+                </div>
+            </section>
+
+            <!-- Favorites Section -->
+            <section class="favorites-section" id="favoritesSection" style="display: none;">
+                <div class="section-header">
+                    <h2><i class="fas fa-star"></i> Favorites</h2>
+                    <button class="action-btn" id="clearFavoritesBtn">
+                        <i class="fas fa-trash"></i> Clear Favorites
+                    </button>
+                </div>
+                <div class="favorites-list" id="favoritesList">
+                    <!-- Favorite items will be populated here -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 GenPass Pro. Built with ❤️ for secure account creation.</p>
+                <div class="footer-links">
+                    <button id="aboutBtn">About</button>
+                    <button id="privacyBtn">Privacy</button>
+                    <button id="historyToggle">History</button>
+                    <button id="favoritesToggle">Favorites</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div class="modal" id="helpModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Help & Guide</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="help-section">
+                    <h4>🔑 Username Generator</h4>
+                    <ul>
+                        <li><strong>Professional:</strong> Business-friendly usernames</li>
+                        <li><strong>Gamer:</strong> Gaming-style with numbers and symbols</li>
+                        <li><strong>Creative:</strong> Artistic and unique combinations</li>
+                        <li><strong>Tech:</strong> Developer and tech-oriented names</li>
+                        <li><strong>Fantasy:</strong> Mystical and fantasy-themed</li>
+                    </ul>
+                </div>
+                <div class="help-section">
+                    <h4>🔒 Password Security</h4>
+                    <ul>
+                        <li><strong>Length:</strong> Longer passwords are exponentially stronger</li>
+                        <li><strong>Character Mix:</strong> Use all character types for maximum security</li>
+                        <li><strong>Uniqueness:</strong> Never reuse passwords across accounts</li>
+                        <li><strong>Storage:</strong> Use a password manager to store securely</li>
+                    </ul>
+                </div>
+                <div class="help-section">
+                    <h4>⚡ Pro Tips</h4>
+                    <ul>
+                        <li>Use the favorites feature to save great combinations</li>
+                        <li>Export your results for offline storage</li>
+                        <li>Enable password generation for complete account setup</li>
+                        <li>Check password strength before using</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="exportModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Export Options</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="export-options">
+                    <button class="export-option" data-format="txt">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Text File (.txt)</span>
+                        <small>Simple text format</small>
+                    </button>
+                    <button class="export-option" data-format="csv">
+                        <i class="fas fa-file-csv"></i>
+                        <span>CSV File (.csv)</span>
+                        <small>Spreadsheet compatible</small>
+                    </button>
+                    <button class="export-option" data-format="json">
+                        <i class="fas fa-file-code"></i>
+                        <span>JSON File (.json)</span>
+                        <small>Structured data format</small>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Generating awesome combinations...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
